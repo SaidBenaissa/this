@@ -1,4 +1,3 @@
-
 // this, is the global object in the browser
 // and the global object in node js, that is the window object
 
@@ -19,7 +18,7 @@ getName('Saïd')
 
 let person = {
     name: 'John',
-    getName: function() {
+    getName: function () {
         console.log(`My name is ${this.name}`);
     }
 }
@@ -31,7 +30,6 @@ let person = {
 // 2. explicit binding, this is the object that is calling the method getName()
 // call
 
-global.name = 'Saïd';
 
 function getName() {
     console.log(`My name is ${this.name}`);
@@ -45,12 +43,14 @@ function Person(name) {
     // this = {}; // reference to the new object
     this.name = name;
 }
+
 let p1 = new Person('John'); // new keyword creates a new object and assign it to this object
 let p2 = new Person('Saïd');
 // console.log(p1.name, p2.name);
 
 
 // (4) default binding, this is the global object
+global.name = 'Saïd';
 getName(); // (4), if non of the above rules apply, the default binding is the global object
 
 
